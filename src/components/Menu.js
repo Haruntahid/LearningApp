@@ -21,7 +21,7 @@ const Menu = () => {
 
       <TouchableOpacity
         style={styles.buttonStyle}
-        onPress={() => navigation.navigate("UserData")}
+        onPress={() => navigation.navigate("Students")}
       >
         <Image
           style={styles.iconStyle}

@@ -13,10 +13,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
 import AppLoading from "expo-app-loading";
-
 import "react-native-gesture-handler";
-import DrawerNav from "./src/components/DrawerNav";
-
+import CustomDrawer from "./src/components/CustomDrawer";
 import {
   useFonts,
   JosefinSans_300Light,
@@ -26,20 +24,10 @@ import {
 } from "@expo-google-fonts/josefin-sans";
 import { Nunito_600SemiBold, Nunito_700Bold } from "@expo-google-fonts/nunito";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-
-// function MyDrawer() {
-//   return (
-//     <Drawer.Navigator useLegacyImplementation>
-//       <Drawer.Screen name="LogIn" component={LogIn} />
-//       {/* <Drawer.Screen name="Article" component={Article} /> */}
-//     </Drawer.Navigator>
-//   );
-// }
+import AppStack from "./src/components/Authentication/AppStack";
+import AuthStack from "./src/components/Authentication/AppStack";
 
 const App = () => {
-  const Stack = createNativeStackNavigator();
-  const Drawer = createDrawerNavigator();
-
   let [fontsLoaded] = useFonts({
     JosefinSans_300Light,
     JosefinSans_400Regular,
@@ -52,26 +40,10 @@ const App = () => {
   if (!fontsLoaded) {
     <AppLoading />;
   }
-
-  // const navigation = useNavigation();
-
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, (user) => {
-  //     if (user) {
-  //       navigation.navigate("Home");
-  //     } else {
-  //     }
-  //   });
-  // }, []);
   return (
     <NavigationContainer>
-      <Drawer.Navigator>
-        <Drawer.Screen name="Home" component={Home} />
-        <Drawer.Screen name="SignUp" component={SignUp} />
-        <Drawer.Screen name="LogIn" component={LogIn} />
-        <Drawer.Screen name="Course" component={Course} />
-        <Drawer.Screen name="UserData" component={UserData} />
-      </Drawer.Navigator>
+      <AppStack />
+      {/* <AuthStack /> */}
     </NavigationContainer>
   );
 };

@@ -54,11 +54,11 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     display: "flex",
     alignItems: "stretch",
-    marginTop: 70,
+    marginTop: 40,
     borderRadius: 20,
   },
   txt_box: {
-    marginTop: 50,
+    marginTop: 30,
   },
   welcome_txt: {
     fontSize: 25,
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
     marginTop: 10,
     color: "#7d7d7d",
-    paddingBottom: 50,
+    paddingBottom: 30,
   },
   linestyle: {
     borderWidth: 0.5,

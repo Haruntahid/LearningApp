@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
 } from "react-native";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { auth } from "../../Firebase.js";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
@@ -18,22 +18,22 @@ const LogIn = () => {
   const [password, setPassword] = useState("");
   const navigation = useNavigation();
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        navigation.navigate("Home");
-      } else {
-        navigation.navigate("LogIn");
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   onAuthStateChanged(auth, (user) => {
+  //     if (user) {
+  //       navigation.navigate("Home");
+  //     } else {
+  //       navigation.navigate("LogIn");
+  //     }
+  //   });
+  // }, []);
 
   const handleSignup = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         alert(`Login Successful ${name}`);
-        setIsSignedIn(true);
-        // navigation.navigate("Home");
+        // setIsSignedIn(true);
+        navigation.navigate("Home");
       })
       .catch((error) => {
         alert("Sorry! Unsuccessful Login");
@@ -43,17 +43,11 @@ const LogIn = () => {
 
   return (
     <View style={styles.main_container}>
-      <Image style={styles.main_logo} source={require("../img/Logo.png")} />
-
+      <View style={styles.main_logo_container}>
+        <Image style={styles.main_logo} source={require("../img/Logo.png")} />
+      </View>
       <KeyboardAvoidingView style={styles.key_content} behavior="padding">
-        <View style={styles.inputContainer}>
-          {/* <TextInput
-          style={styles.inputStyle}
-          placeholder={"Enter Your Name..."}
-          value={name}
-          onChangeText={(name) => setName(name)}
-        /> */}
-        </View>
+        <View style={styles.inputContainer}></View>
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.inputStyle}
@@ -95,6 +89,9 @@ const styles = StyleSheet.create({
     width: 350,
     height: 250,
     marginTop: 50,
+  },
+  main_logo_container: {
+    alignItems: "center",
   },
   inputStyle: {
     borderWidth: 1,

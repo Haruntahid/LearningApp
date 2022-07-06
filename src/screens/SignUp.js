@@ -55,7 +55,7 @@ const SignUp = () => {
           displayName: name,
         });
         sendEmailVerification(auth.currentUser);
-        // navigation.navigate("Home");
+        navigation.navigate("Home");
       })
       .catch((error) => {
         alert("Sorry! Unsuccessful Registration");
