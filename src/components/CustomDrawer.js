@@ -34,10 +34,10 @@ const CustomDrawer = (props) => {
           <DrawerItemList {...props} />
         </View>
       </DrawerContentScrollView>
-      <View>
+      {/* <View>
         <Text>Developed By Vixingo Tech</Text>
         <Text> {user ? user.email : ""}</Text>
-      </View>
+      </View> */}
     </View>
   );
 };

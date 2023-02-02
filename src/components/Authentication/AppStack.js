@@ -21,6 +21,7 @@ import {
 import { Nunito_600SemiBold, Nunito_700Bold } from "@expo-google-fonts/nunito";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import Profile from "../../screens/Profile";
+import Video from "../Video";
 
 const AppStack = () => {
   const Stack = createNativeStackNavigator();
@@ -47,7 +48,6 @@ const AppStack = () => {
         options={{
           headerTitleStyle: {
             fontSize: 22,
-            fontFamily: "Nunito_600SemiBold",
           },
           headerTitle: "Home",
           headerTitleAlign: "center",
@@ -60,6 +60,7 @@ const AppStack = () => {
       <Drawer.Screen name="About" component={About} />
       <Drawer.Screen name="Contact" component={Contact} />
       <Drawer.Screen name="Profile" component={Profile} />
+      <Drawer.Screen name="Video" component={Video} />
     </Drawer.Navigator>
   );
 };

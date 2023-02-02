@@ -27,6 +27,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import AppStack from "./src/components/Authentication/AppStack";
 import AuthStack from "./src/components/Authentication/AppStack";
 
+
 const App = () => {
   let [fontsLoaded] = useFonts({
     JosefinSans_300Light,
@@ -43,7 +44,6 @@ const App = () => {
   return (
     <NavigationContainer>
       <AppStack />
-      {/* <AuthStack /> */}
     </NavigationContainer>
   );
 };
